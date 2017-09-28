@@ -66,7 +66,7 @@ public class PedidoDAO {
             
             stmt = conn.prepareStatement("UPDATE pedido (idUsuario,status) values (?, ?) WHERE idPedido=?",Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, Integer.toString(pedido.getUsuario().getId()));
-            stmt.setString(1, Integer.toString(pedido.getStatus()));
+            stmt.setString(1, Integer.toString(pedido.getStatus().getStatusID()));
             stmt.setString(1, Integer.toString(pedido.getId()));
             
             

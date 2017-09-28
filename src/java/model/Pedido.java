@@ -16,11 +16,11 @@ public class Pedido {
     protected int id;
     protected Date date;
     protected Date ultimaAlteracao;
-    protected int status;//1 - Pedido, 2 - Em preparacao,3 - Saiu pra entrega, 0 - Cancelado
+    protected PedidoStatus status;//1 - Pedido, 2 - Em preparacao,3 - Saiu pra entrega, 0 - Cancelado
     protected Usuario usuario;
     protected List<Produto> produtos;
 
-    public Pedido(int id, Date date, Date ultimaAlteracao, int status, Usuario usuario, List<Produto> produtos) {
+    public Pedido(int id, Date date, Date ultimaAlteracao, PedidoStatus status, Usuario usuario, List<Produto> produtos) {
         this.id = id;
         this.date = date;
         this.ultimaAlteracao = ultimaAlteracao;
@@ -35,7 +35,7 @@ public class Pedido {
         this.produtos = produtos;
         date=new Date();
         ultimaAlteracao=new Date();
-        status=1;
+        status=new PedidoRecebido();
     }
 
     public int getId() {
@@ -54,11 +54,11 @@ public class Pedido {
         this.date = date;
     }
 
-    public int getStatus() {
+    public PedidoStatus getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(PedidoStatus status) {
         this.status = status;
         this.ultimaAlteracao=new Date();
     }

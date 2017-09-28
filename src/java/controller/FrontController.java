@@ -1,22 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Produto;
 import percistence.ProdutoDAO;
 
-@WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})
+/**
+ *
+ * @author 11944413600
+ */
 public class FrontController extends HttpServlet {
 
     /**
@@ -33,7 +29,6 @@ public class FrontController extends HttpServlet {
         Action actionObject = null;
         
         List<Produto> produtos = ProdutoDAO.getInstance().getProdutos();
-        System.out.println("Entoru");
         System.out.println(produtos.size());
         
         actionObject = (action == null  || action.equals("")) ? null : ActionFactory.create(action);
@@ -41,7 +36,7 @@ public class FrontController extends HttpServlet {
         if( actionObject != null ){
             actionObject.execute( request, response );
         }else{
-            response.sendRedirect("index.html");
+            response.sendRedirect("teste.html");
         }
     }
 

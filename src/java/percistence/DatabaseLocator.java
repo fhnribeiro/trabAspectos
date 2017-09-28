@@ -19,7 +19,7 @@ public class DatabaseLocator {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10196618:3306","sql10196618","uXr9APNuSN");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10196618","sql10196618","uXr9APNuSN");
             return conn;
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();

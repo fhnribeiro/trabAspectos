@@ -20,6 +20,12 @@ public class UsuarioDAO {
         return instance;
     }
     
+    // TODO: Implementar Login
+    public Usuario Login(String nome, String email){
+        Usuario usuario = new Usuario();
+        return usuario; 
+    }
+    
     public void Save(Usuario usuario) throws SQLException{
         
         Connection conn = null;

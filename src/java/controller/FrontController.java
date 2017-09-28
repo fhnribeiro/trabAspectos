@@ -7,11 +7,14 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Produto;
+import percistence.ProdutoDAO;
 
 @WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
@@ -29,12 +32,16 @@ public class FrontController extends HttpServlet {
         String action = request.getParameter("action");
         Action actionObject = null;
         
+        List<Produto> produtos = ProdutoDAO.getInstance().getProdutos();
+        System.out.println("Entoru");
+        System.out.println(produtos.size());
+        
         actionObject = (action == null  || action.equals("")) ? null : ActionFactory.create(action);
         
         if( actionObject != null ){
             actionObject.execute( request, response );
         }else{
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("index.html");
         }
     }
 

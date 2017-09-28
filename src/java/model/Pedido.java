@@ -70,5 +70,9 @@ public class Pedido {
         this.produtos = produtos;
     }
     
+    public void addProduto(Produto p){
+        produtos.add(p);
+    }
+    
     
 }

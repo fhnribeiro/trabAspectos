@@ -86,7 +86,7 @@ public class UsuarioDAO {
             
             while(rs.next()){
             
-                usuario = new Usuario(rs.getInt("id"),rs.getString("nome"),rs.getString("email"));
+                usuario = new Usuario(rs.getInt("idContato"),rs.getString("nome"),rs.getString("email"));
                 
             }
             

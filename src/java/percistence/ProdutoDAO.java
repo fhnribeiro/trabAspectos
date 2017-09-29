@@ -36,7 +36,7 @@ public class ProdutoDAO {
             
             while(rs.next()){
                 
-                Produto p = new Produto(rs.getInt("id"),rs.getString("nome"),rs.getString("nome"));
+                Produto p = new Produto(rs.getInt("idProduto"),rs.getString("nome"),rs.getString("nome"));
                 produtos.add(p);
                 
             }

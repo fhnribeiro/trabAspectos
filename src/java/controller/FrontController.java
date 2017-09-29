@@ -36,7 +36,7 @@ public class FrontController extends HttpServlet {
         if( actionObject != null ){
             actionObject.execute( request, response );
         }else{
-            response.sendRedirect("teste.html");
+            response.sendRedirect("index.jsp");
         }
     }
 

@@ -28,7 +28,7 @@ public class UsuarioDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
 
-            stmt = conn.prepareStatement("INSERT INTO contato (nome, email) values (?, ?)",Statement.RETURN_GENERATED_KEYS);
+            stmt = conn.prepareStatement("INSERT INTO usuario (nome, email) values (?, ?)",Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, usuario.getNome());
             stmt.setString(2, usuario.getEmail());            
             int id = stmt.executeUpdate();
@@ -80,13 +80,13 @@ public class UsuarioDAO {
             
             conn = DatabaseLocator.getInstance().getConnection();
 
-            stmt = conn.prepareStatement("SELECT * FROM contato WHERE idUsuario=?");
+            stmt = conn.prepareStatement("SELECT * FROM usuario WHERE idUsuario=?");
             stmt.setString(1, Integer.toString(id));
             ResultSet rs = stmt.executeQuery();
             
             while(rs.next()){
             
-                usuario = new Usuario(rs.getInt("idContato"),rs.getString("nome"),rs.getString("email"));
+                usuario = new Usuario(rs.getInt("idUsuario"),rs.getString("nome"),rs.getString("email"));
                 
             }
             

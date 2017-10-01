@@ -28,9 +28,6 @@ public class FrontController extends HttpServlet {
         String action = request.getParameter("action");
         Action actionObject = null;
         
-        List<Produto> produtos = ProdutoDAO.getInstance().getProdutos();
-        System.out.println(produtos.size());
-        
         actionObject = (action == null  || action.equals("")) ? null : ActionFactory.create(action);
         
         if( actionObject != null ){

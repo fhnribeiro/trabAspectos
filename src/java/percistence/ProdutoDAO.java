@@ -36,7 +36,7 @@ public class ProdutoDAO {
             
             while(rs.next()){
                 
-                Produto p = new Produto(rs.getInt("idProduto"),rs.getString("nome"),rs.getString("nome"));
+                Produto p = new Produto(rs.getInt("idProduto"),rs.getString("nome"),rs.getString("descricao"));
                 produtos.add(p);
                 
             }
@@ -45,6 +45,56 @@ public class ProdutoDAO {
         }
         
         return produtos;
+    }
+    
+    public List<Produto> getProdutosPedido(Pedido pedido){
+        List<Produto> produtos = new ArrayList<Produto>();
+        Connection conn = null;
+        PreparedStatement  stmt = null;
+        conn = DatabaseLocator.getInstance().getConnection();
+
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM produtosPedido WHERE idPedido=?");            
+            stmt.setString(1, Integer.toString(pedido.getId()));
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                
+                Produto p = new Produto(rs.getInt("idProduto"),rs.getString("nome"),rs.getString("descricao"));
+                produtos.add(p);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return produtos;
+    }
+    
+    public Produto getProduto(Integer id){
+        
+        Connection conn = null;
+        PreparedStatement  stmt = null;
+        conn = DatabaseLocator.getInstance().getConnection();
+        
+        Produto produto = null;
+
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM produto WHERE idProduto=?");            
+            stmt.setString(1, Integer.toString(id));
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                
+                Produto p = new Produto(rs.getInt("idProduto"),rs.getString("nome"),rs.getString("descricao"));
+                produto = p;
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return produto;
     }
     
     public void closeResources(Connection conn, Statement st){

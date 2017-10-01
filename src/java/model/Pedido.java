@@ -20,8 +20,7 @@ public class Pedido {
         this.produtos = produtos;
     }
 
-    public Pedido(int id, Usuario usuario, List<Produto> produtos) {
-        this.id = id;
+    public Pedido(Usuario usuario, List<Produto> produtos) {
         this.usuario = usuario;
         this.produtos = produtos;
         date=new Date();

@@ -7,12 +7,10 @@ import percistence.ProdutoDAO;
 public class ActionFactory {
 
     static Action create(String action) {
-        
         Action actionObject = null;
         String nomeClasse = "action." + action + "Action";
         Class classe = null;
         Object objeto = null;
-        
         try {
             classe = Class.forName(nomeClasse);
             objeto = classe.newInstance();

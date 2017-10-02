@@ -54,7 +54,7 @@ public class ProdutoDAO {
         conn = DatabaseLocator.getInstance().getConnection();
 
         try {
-            stmt = conn.prepareStatement("SELECT * FROM produtosPedido WHERE idPedido=?");            
+            stmt = conn.prepareStatement("SELECT produto.* FROM produtosPedido LEFT JOIN produto ON produto.idProduto=produtosPedido.idProduto WHERE idPedido=?");            
             stmt.setString(1, Integer.toString(pedido.getId()));
             ResultSet rs = stmt.executeQuery();
             

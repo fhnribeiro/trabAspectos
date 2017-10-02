@@ -65,7 +65,6 @@ public class PedidoDAO {
         
         Connection conn = null;
         PreparedStatement  stmt = null;
-        System.out.println("Entrou 3");
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             
@@ -73,9 +72,7 @@ public class PedidoDAO {
             stmt.setString(1, Integer.toString(pedido.getUsuario().getId()));
             stmt.setString(1, Integer.toString(pedido.getStatus().getStatusID()));
             stmt.setString(1, Integer.toString(pedido.getId()));
-            
-            
-            
+
             ArrayList<Produto> produtos = (ArrayList<Produto>) pedido.getProdutos();
             
             System.out.println("Total produtos: "+produtos.size());

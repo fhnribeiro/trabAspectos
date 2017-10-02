@@ -21,8 +21,21 @@ public class UsuarioDAO {
     }
     
     // TODO: Implementar Login
-    public Usuario Login(String nome, String email){
+    public Usuario Login(String nome, String email) throws SQLException{
         Usuario usuario = new Usuario();
+        
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            stmt = conn.prepareStatement("SELECT nome, email, senha FROM usuario WHERE email = ?");
+        } catch(SQLException e) { 
+            throw e;
+        } finally {
+            closeResources(conn, stmt);
+        }
+        
         return usuario; 
     }
     
@@ -34,20 +47,17 @@ public class UsuarioDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
 
-            stmt = conn.prepareStatement("INSERT INTO usuario (nome, email) values (?, ?)",Statement.RETURN_GENERATED_KEYS);
+            stmt = conn.prepareStatement("INSERT INTO usuario (nome, email, senha) values (?, ?, ?)",Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, usuario.getNome());
-            stmt.setString(2, usuario.getEmail());            
+            stmt.setString(2, usuario.getEmail());   
+            stmt.setString(3, usuario.getSenha()); 
             int id = stmt.executeUpdate();
             usuario.setId(id);
             
-        } catch(SQLException e) {
-            
+        } catch(SQLException e) {    
             throw e;
-            
         } finally {
-            
             closeResources(conn, stmt);
-            
         }
 
     }

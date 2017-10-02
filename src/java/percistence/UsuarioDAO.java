@@ -21,15 +21,23 @@ public class UsuarioDAO {
     }
     
     // TODO: Implementar Login
-    public Usuario Login(String nome, String email) throws SQLException{
-        Usuario usuario = new Usuario();
+    public Usuario Login(String email, String senha) throws SQLException{
+        Usuario usuario=null;
         
         Connection conn = null;
         PreparedStatement stmt = null;
         
         try {
             conn = DatabaseLocator.getInstance().getConnection();
-            stmt = conn.prepareStatement("SELECT nome, email, senha FROM usuario WHERE email = ?");
+            stmt = conn.prepareStatement("SELECT idUsuario,nome, email, senha FROM usuario WHERE email = ?");
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            
+            while(rs.next()){
+            
+                usuario = new Usuario(rs.getInt("idUsuario"),rs.getString("nome"),rs.getString("email"));
+                
+            }
         } catch(SQLException e) { 
             throw e;
         } finally {

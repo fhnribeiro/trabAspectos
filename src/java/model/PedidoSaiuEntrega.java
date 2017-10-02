@@ -8,33 +8,33 @@ public class PedidoSaiuEntrega implements PedidoStatus{
     }
 
     @Override
-    public void Recebido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        // MUDAR ESTADO DO PEDIDO
-        // return "Pedido finalizado com sucesso.";
-    }
-
-    @Override
-    public void EmPreparacao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        // return "Pedido não pode voltar para preparação após ter saído para entrega.";
-    }
-
-    @Override
-    public void SaiuEntrega() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        //return "O pedido já se encontra saindo para entrega."
-    }
-
-    @Override
-    public void Cancelado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        // return "Não é possível cancelar um pedido que já saiu para entrega."
-    }
-
-    @Override
     public int getStatusID() {
-        return 3;
+        return 4;
+    }
+
+    @Override
+    public String Aberto(Pedido p) {
+        return "Não foi possível realizar esta operação";
+    }
+
+    @Override
+    public String Recebido(Pedido p) {
+        return "Não foi possível realizar esta operação";
+    }
+
+    @Override
+    public String EmPreparacao(Pedido p) {
+        return "Não foi possível realizar esta operação";
+    }
+
+    @Override
+    public String SaiuEntrega(Pedido p) {
+        return "Não foi possível realizar esta operação";
+    }
+
+    @Override
+    public String Cancelado(Pedido p) {
+        return "Não foi possível realizar esta operação";
     }
     
 }

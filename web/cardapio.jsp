@@ -11,14 +11,12 @@
     </head>
     <body>
         <div class="log-form">
-          <h2>Faça Login na sua conta!</h2>
-          <form action="FrontController?action=Login" method="post">
-                <input type="text" title="email" placeholder="email" name="email"/>
-                <input type="password" title="senha" placeholder="senha" name="senha"/>
-                <button type="submit" class="btn">Entrar</button>
-                <a class="forgot" href="#">Criar uma conta</a>
-                <p class="bg-danger" style="margin-top: 10%;"> Login inválido. Nome de usuário ou senha incorretos.</p>
-          </form>
+          <h2>Cardápio</h2>
+          
+              <ul>
+                  ${list}
+              </ul>
+          
         </div>       
         
     </body>

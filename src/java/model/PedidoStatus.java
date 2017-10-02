@@ -6,11 +6,13 @@ public interface PedidoStatus {
     
     public int getStatusID();
     
-    public void Recebido();
+    public String Aberto(Pedido p);
     
-    public void EmPreparacao();
+    public String Recebido(Pedido p);
     
-    public void SaiuEntrega();
+    public String EmPreparacao(Pedido p);
     
-    public void Cancelado();
+    public String SaiuEntrega(Pedido p);
+    
+    public String Cancelado(Pedido p);
 }

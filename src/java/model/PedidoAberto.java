@@ -1,25 +1,35 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package model;
 
-public class PedidoRecebido implements PedidoStatus{
+/**
+ *
+ * @author fhnri
+ */
+public class PedidoAberto  implements PedidoStatus{
 
     @Override
     public String getStatus() {
-        return "Recebido";
+        return "Aberto";
     }
-    
+
     @Override
     public int getStatusID() {
-        return 2;
+        return 1;
     }
 
     @Override
     public String Aberto(Pedido p) {
-        return "Não foi possível realizar esta operação";
+        return "Este pedido já está aberto";
     }
 
     @Override
     public String Recebido(Pedido p) {
-        return "Não foi possível realizar esta operação";
+        p.setStatus(new PedidoRecebido());
+        return "Seu pedido foi recebido";
     }
 
     @Override

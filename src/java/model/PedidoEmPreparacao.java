@@ -6,30 +6,40 @@ public class PedidoEmPreparacao implements PedidoStatus{
     public String getStatus() {
         return "Em preparação";
     }
-
-    @Override
-    public void Recebido() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void EmPreparacao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void SaiuEntrega() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void Cancelado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
     @Override
     public int getStatusID() {
-        return 2;
+        return 3;
     }
+
+    @Override
+    public String Aberto(Pedido p) {
+       return "Este pedido já está sendo preparado. Não foi possível realizar esta operação";
+    }
+
+    @Override
+    public String Recebido(Pedido p) {
+        return "Este pedido já está sendo preparado. Não foi possível realizar esta operação";
+    }
+
+    @Override
+    public String EmPreparacao(Pedido p) {
+        p.setStatus(new PedidoEmPreparacao());
+        return "Seu está em preparação";
+    }
+
+    @Override
+    public String SaiuEntrega(Pedido p) {
+        p.setStatus(new PedidoSaiuEntrega());
+        return "Seu pedido saiu para entrega";
+    }
+
+    @Override
+    public String Cancelado(Pedido p) {
+        p.setStatus(new PedidoCancelado());
+        return "Seu pedido foi cancelado";
+    }
+    
+    
     
 }

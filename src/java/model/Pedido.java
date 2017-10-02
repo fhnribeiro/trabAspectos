@@ -7,7 +7,7 @@ public class Pedido {
     protected int id;
     protected Date date;
     protected Date ultimaAlteracao;
-    protected PedidoStatus status;//1 - Pedido, 2 - Em preparacao,3 - Saiu pra entrega, 0 - Cancelado
+    protected PedidoStatus status;//1 - Aberto, 2 - Recebido, 3 - Em preparacao,4 - Saiu pra entrega, 0 - Cancelado
     protected Usuario usuario;
     protected List<Produto> produtos;
 

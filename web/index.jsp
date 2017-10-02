@@ -13,8 +13,8 @@
         <div class="log-form">
           <h2>Faça Login na sua conta!</h2>
           <form action="FrontController?action=Login" method="post">
-                <input type="text" title="email" placeholder="email" />
-                <input type="password" title="senha" placeholder="senha" />
+                <input type="text" name ="email" title="email" placeholder="email" />
+                <input type="password" name ="senha" title="senha" placeholder="senha" />
                 <button type="submit" class="btn">Entrar</button>
                 <a class="forgot" href="#">Criar uma conta</a>
           </form>

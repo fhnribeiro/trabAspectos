@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 28/09/2017, 20:08:39
-    Author     : 11944413600
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +12,7 @@
     <body>
         <div class="log-form">
           <h2>Faça Login na sua conta!</h2>
-          <form>
+          <form action="FrontController?action=Login" method="post">
                 <input type="text" title="email" placeholder="email" />
                 <input type="password" title="senha" placeholder="senha" />
                 <button type="submit" class="btn">Entrar</button>
